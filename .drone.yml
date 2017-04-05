@@ -1,0 +1,32 @@
+pipeline:
+  buildimage:
+    image: docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - docker build
+         --label org.label-schema.vcs-ref=$DRONE_COMMIT_SHA
+         --label build-number=$DRONE_BUILD_NUMBER
+         --label build-date="$(date)"
+         -t devopsbootcamp2/devcamp_front:$DRONE_COMMIT_SHA .
+  push:
+    image: docker
+    environment:
+      - USER=${HUB_USER}
+      - PASS=${HUB_PASS}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - docker login -u $USER -p $PASS
+      - docker push devopsbootcamp2/devcamp_front:$DRONE_COMMIT_SHA
+  notify:
+    when:
+      status: [failure]
+    image: amouat/network-utils
+    commands:
+      - chmod +x ./notifyfailure.sh
+      - ./notifyfailure.sh
+  finish:
+    image: debian
+    commands:
+      -date
