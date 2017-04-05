@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DevOps Calendar Page</title>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="DevOpsStyleSheet.css">
+	<script src="jquery-1.7.1.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div class="logo">
+		<img src="devopslogo.png">
+	</div>
+	<div id="wrapper">
+		<button id="logoutbutton" onClick="logOut()">Logout</button>
+	</div>
+	<iframe src="https://calendar.google.com/calendar/embed?src=manny.potter%40capgemini.com&ctz=Europe/London"
+	style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<style>
+	html{
+		text-align:center;
+	}
+	body{
+		display:inline-block;
+		margin:0px auto;
+		text-align:center;
+	}
+	.wrapper{
+		text-align: center;
+	}
+
+	#logout_button{
+		top: 5%;
+		size: 24px;
+	}
+</style>
+<script>
+	/*
+	$.ajax({
+			url: 'http://52.213.73.119:80/service/user/login',
+			type: 'POST',
+			data: '', // or $('#myform').serializeArray()
+			success: function() { alert('Logout Successful'); }
+		});
+	*/
+</script>
+</body>
+</html>
