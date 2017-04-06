@@ -23,11 +23,13 @@ pipeline:
       - docker push devopsbootcamp2/devcamp_front:production
   deploy:
     ssh:
-      host: ${SSH_IP}
-      user: ${SSH_USER}
-      port: 22
-      commands:
-        - ~/deploy_front.sh
+    image: appleboy/drone-ssh
+    host: ${SSH_IP}
+    username: ${SSH_USER}
+    port: 22
+    key: ${SSH_KEY}
+    script:
+      - ~/deploy_front.sh
   notify:
     when:
       status: [failure]
