@@ -22,12 +22,12 @@ pipeline:
       - docker push devopsbootcamp2/devcamp_front:$DRONE_COMMIT_SHA
       - docker push devopsbootcamp2/devcamp_front:production
   deploy:
-    image: appleboy/drone-ssh
-    host: ${SSH_IP}
-    username: ${SSH_USER}
-    key: ${SSH_KEY}
-    port: 22
-    script: ~/deploy_front.sh
+    ssh:
+      host: ${SSH_IP}
+      user: ${SSH_USER}
+      port: 22
+      commands:
+        - ~/deploy_front.sh
   notify:
     when:
       status: [failure]
