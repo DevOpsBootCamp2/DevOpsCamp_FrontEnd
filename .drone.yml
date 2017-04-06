@@ -28,7 +28,7 @@ pipeline:
     key: ${SSH_KEY}
     port: 22
     script:
-      - /deploy_api.sh
+      - /deploy_front.sh
   notify:
     when:
       status: [failure]
