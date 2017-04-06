@@ -21,14 +21,14 @@ pipeline:
       - docker tag devopsbootcamp2/devcamp_front:$DRONE_COMMIT_SHA devopsbootcamp2/devcamp_front:production
       - docker push devopsbootcamp2/devcamp_front:$DRONE_COMMIT_SHA
       - docker push devopsbootcamp2/devcamp_front:production
-  deploy:
-    image: appleboy/drone-ssh
-    host: ${SSH_IP}
-    username: ${SSH_USER}
-    port: 22
-    key: ${SSH_KEY}
-    script:
-      - echo hello
+#  deploy:
+#    image: appleboy/drone-ssh
+#    host: ${SSH_IP}
+#    username: ${SSH_USER}
+#    port: 22
+#    key: ${SSH_KEY}
+#    script:
+#      - echo hello
   notify:
     when:
       status: [failure]
