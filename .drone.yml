@@ -25,7 +25,7 @@ pipeline:
     image: appleboy/drone-ssh
     host: ${SSH_IP}
     username: ${SSH_USER}
-    key: ${SSH_KEY}
+    key_path: ${SSH_KEY}
     port: 22
     script:
       - /deploy_front.sh
