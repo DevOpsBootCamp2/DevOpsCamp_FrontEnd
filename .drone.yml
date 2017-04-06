@@ -21,6 +21,9 @@ pipeline:
       - docker tag devopsbootcamp2/devcamp_front:$DRONE_COMMIT_SHA devopsbootcamp2/devcamp_front:production
       - docker push devopsbootcamp2/devcamp_front:$DRONE_COMMIT_SHA
       - docker push devopsbootcamp2/devcamp_front:production
+  deploy:
+    commands:
+      - ssh -i ./keys/swarm_master_ssh_key ${SSH_USER}@${SSH_IP} bash deploy_front.sh
 #  deploy:
 #    image: appleboy/drone-ssh
 #    host: ${SSH_IP}
