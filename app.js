@@ -9,7 +9,8 @@ function logIn(){
      email : document.getElementById("lg_username").value,
      password : document.getElementById("lg_password").value
   }
-
+    window.location.href="DevOpsCalendarPage.html";
+}
   	//$.ajax({
   	//	type: 'POST',
   	//	url: 'http://52.213.73.119:80/service/login/auth',
@@ -18,7 +19,6 @@ function logIn(){
   	//	crossDomain: true,
   	//	dataType: "json",
   	//	success: function(data) {
-                window.location.href="DevOpsCalendarPage.html";
     //            alert("login successful")
   	//						console.log(data);
   	//						},
@@ -26,4 +26,3 @@ function logIn(){
   	//						console.log(data);
   	//						}
   	//	});
-}
