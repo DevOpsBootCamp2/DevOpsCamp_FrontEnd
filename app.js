@@ -5,6 +5,7 @@ function logOut(){
   }
 
 function logIn(){
+	console.log("In Funstion")
   var data = {
      email : document.getElementById("lg_username").value,
      password : document.getElementById("lg_password").value
