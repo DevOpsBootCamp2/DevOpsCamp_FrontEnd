@@ -18,7 +18,7 @@ function logIn(){
   	//	crossDomain: true,
   	//	dataType: "json",
   	//	success: function(data) {
-                window.location.href="DevOpsCalendarPage";
+                window.location.href="DevOpsCalendarPage.html";
     //            alert("login successful")
   	//						console.log(data);
   	//						},
